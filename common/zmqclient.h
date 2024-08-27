@@ -5,7 +5,7 @@
 #include <queue>
 #include <thread> 
 #include <mutex> 
-#include "zmqserver.h"
+#include "table.h"
 
 namespace swss {
 
@@ -24,6 +24,8 @@ public:
                  const std::string& tableName,
                  const std::vector<KeyOpFieldsValuesTuple>& kcos,
                  std::vector<char>& sendbuffer);
+
+    void sendRaw(const char* buffer, size_t size);
 private:
     void initialize(const std::string& endpoint, const std::string& vrf);
 
